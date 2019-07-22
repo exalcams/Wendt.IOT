@@ -1,0 +1,53 @@
+<mat-toolbar class="p-0">
+    <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+        <div class="mt-12" fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
+            <div fxLayout class="m-24 whiteFont">
+                Hi , Good morning.!
+            </div>
+        </div>
+        <div class="mt-12" fxFlex="1 1 auto" fxLayout="row" fxLayoutAlign="start center">
+            <div class="search m-24" fxLayout="row" fxLayoutAlign="start center">
+                <input [(ngModel)]="searchText" type="text" placeholder="Search here">
+                <label for="search" class="mr-8">
+                    <mat-icon class="s-16 mr-8">search</mat-icon>
+                </label>
+            </div>
+            <!-- <div class="logo my-12 m-sm-0" fxLayout="row" fxLayoutAlign="start center">
+                <input class="searchBar" id="search" #filter placeholder="Search here">
+                <label style="margin-left:-30px;margin-top:6px" for="search" class="mr-8">
+                    <mat-icon style="color: rgba(265, 265, 265, 0.5);font-size: 16px;" class="secondary-text">
+                        search</mat-icon>
+                </label>
+            </div> -->
+        </div>
+
+        <div class="mt-12" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
+
+            <button mat-button fxHide fxShow.gt-xs class="language-button" [matMenuTriggerFor]="languageMenu">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-icon svgIcon="NotificationsButton"></mat-icon>
+                    <!-- <mat-icon [matBadge]="NotificationCount" matBadgeColor="accent">notifications_active</mat-icon> -->
+                </div>
+            </button>
+
+            <mat-menu #languageMenu="matMenu" [overlapTrigger]="false">
+                <button mat-menu-item *ngFor="let notif of AllNotificationByUserID" class="notificationMenuItem"
+                    style="width:75vw" (click)="UpdateNotification(notif)">
+                    <span>{{notif.Message}}</span>
+                </button>
+            </mat-menu>
+
+            <button mat-button fxHide fxShow.gt-xs class="language-button">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-icon>settings</mat-icon>
+                </div>
+            </button>
+
+            <button mat-button (click)="logOutClick()" fxHide fxShow.gt-xs class="language-button">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-icon svgIcon="ExitToApp"></mat-icon>
+                </div>
+            </button>
+        </div>
+    </div>
+</mat-toolbar>

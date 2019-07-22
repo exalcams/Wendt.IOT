@@ -1,0 +1,200 @@
+<div class="page-layout carded fullwidth inner-scroll" fusePerfectScrollbar>
+  <div class="top-bg"></div>
+  <div class="center mt-36">
+    <div class="row">
+        <div class="col-4">col-4</div>
+        <div class="col-4">col-4</div>
+        <div class="col-4">col-4</div>
+        <div class="col-4">col-4</div>
+        <div class="col-4">col-4</div>
+    </div>
+    <!-- <div fxLayout="column" fxLayoutGap="10px"> -->
+      <!-- <div fxFlex fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px"
+        class="main-content m-12">
+        <div fxFlex class="p-8 ml-80 mr-80">
+          <mat-card class="px-4 tile py-12">
+            <mat-card-header class="ml-12">
+              <span class="borderBottom">
+                H29
+              </span>
+            </mat-card-header>
+            <mat-card-content class="ml-12">
+              <div fxLayout fxLayoutAlign="center" fxLayoutGap="5px">
+                <div fxFlex="70">
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Today</div>
+                    <div fxFlex>2 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Week</div>
+                    <div fxFlex>13 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Month</div>
+                    <div fxFlex>71 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Status</div>
+                    <div fxFlex>In Treatment</div>
+                  </div>
+                </div>
+                <div fxFlex="30" class="mt-56 pl-12">
+                  <img src="/assets/images/demo/gear.png" class="mr-8">
+                  <img src="/assets/images/demo/question.png">
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <div class="podium"></div>
+        </div>
+        <div fxFlex class="p-8 ml-80 mr-80">
+          <mat-card class="px-4 tile py-12">
+            <mat-card-header class="ml-12">
+              <span class="borderBottom">
+                H30
+              </span>
+            </mat-card-header>
+            <mat-card-content class="ml-12">
+              <div fxLayout fxLayoutAlign="center" fxLayoutGap="5px">
+                <div fxFlex="70">
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Today</div>
+                    <div fxFlex>2 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Week</div>
+                    <div fxFlex>13 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Month</div>
+                    <div fxFlex>71 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Status</div>
+                    <div fxFlex>In Treatment</div>
+                  </div>
+                </div>
+                <div fxFlex="30" class="mt-56 pl-12">
+                  <img src="/assets/images/demo/gear.png" class="mr-8">
+                  <img src="/assets/images/demo/question.png">
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <div class="podium"></div>
+        </div>
+      </div> -->
+      <div fxFlex fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center" 
+        fxLayoutGap="20px" class="main-content m-12">
+        <div fxFlex="33" *ngFor="let dev of DeviceDetailsList" class="p-8 screenChange">
+          <mat-card class="px-4 tile py-12 mt-8">
+            <mat-card-header class="ml-12">
+              <span class="borderBottom">
+                {{dev.DeviceID}}
+              </span>
+            </mat-card-header>
+            <mat-card-content class="ml-12">
+              <div fxLayout fxLayoutAlign="center" fxLayoutGap="5px">
+                <div fxFlex="70">
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Today</div>
+                    <div fxFlex>{{dev.TodayOnHours}}</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Week</div>
+                    <div fxFlex>{{dev.WeekOnHours}}</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Month</div>
+                    <div fxFlex>{{dev.MonthOnHours}}</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Status</div>
+                    <div fxFlex>{{dev.Status}}</div>
+                  </div>
+                </div>
+                <div fxFlex="30" class="mt-56 pl-12">
+                  <img src="/assets/images/demo/gear.png" class="mr-8">
+                  <img src="/assets/images/demo/question.png">
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <div class="podium"></div>
+        </div>
+        <!-- <div fxFlex class="p-8 screenChange">
+          <mat-card class="px-4 tile py-12">
+            <mat-card-header class="ml-12">
+              <span class="borderBottom">
+                H32
+              </span>
+            </mat-card-header>
+            <mat-card-content class="ml-12">
+              <div fxLayout fxLayoutAlign="center" fxLayoutGap="5px">
+                <div fxFlex="70">
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Today</div>
+                    <div fxFlex>2 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Week</div>
+                    <div fxFlex>13 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Month</div>
+                    <div fxFlex>71 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Status</div>
+                    <div fxFlex>In Treatment</div>
+                  </div>
+                </div>
+                <div fxFlex="30" class="mt-56 pl-12">
+                  <img src="/assets/images/demo/gear.png" class="mr-8">
+                  <img src="/assets/images/demo/question.png">
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <div class="podium"></div>
+        </div>
+        <div fxFlex class="p-8 screenChange">
+          <mat-card class="px-4 tile py-12">
+            <mat-card-header class="ml-12">
+              <span class="borderBottom">
+                H33
+              </span>
+            </mat-card-header>
+            <mat-card-content class="ml-12">
+              <div fxLayout fxLayoutAlign="center" fxLayoutGap="5px">
+                <div fxFlex="70">
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Today</div>
+                    <div fxFlex>2 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Week</div>
+                    <div fxFlex>13 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Month</div>
+                    <div fxFlex>71 hours</div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="center" class="mt-4" fxLayoutGap="5px">
+                    <div fxFlex>Status</div>
+                    <div fxFlex>In Treatment</div>
+                  </div>
+                </div>
+                <div fxFlex="30" class="mt-56 pl-12">
+                  <img src="/assets/images/demo/gear.png" class="mr-8">
+                  <img src="/assets/images/demo/question.png">
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <div class="podium"></div>
+        </div> -->
+      </div>
+    <!-- </div> -->
+  </div>
+</div>

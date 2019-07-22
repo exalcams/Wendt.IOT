@@ -1,0 +1,75 @@
+// Import Fuse core library
+@import "@fuse/scss/core";
+
+// Import app.theme.scss
+@import "app/app.theme";
+
+.success {
+  background-color: #26b329 !important;
+}
+
+.danger {
+  background-color: #d6201d !important;
+}
+
+.warning {
+  background-color: #ee9a2c !important;
+}
+
+.info {
+  background-color: #1992ce !important;
+}
+.ProgressBarPostion {
+  position: absolute !important;
+  top: 43%;
+  z-index: 1;
+  left: 55%;
+}
+
+.mat-step-header .mat-step-icon {
+  background-color: lightblue !important;
+  color: green !important;
+}
+
+.mat-horizontal-stepper-header {
+  pointer-events: none !important;
+}
+.mat-dialog-container {
+  padding: 0px !important;
+}
+.cdk-global-scrollblock {
+  overflow-y: hidden !important;
+}
+.notificationMenuItem {
+  overflow: visible !important;
+  white-space: normal !important;
+  height: auto !important;
+  line-height: 26px !important;
+  font-size: 15px !important;
+  padding-top: 10px !important;
+}
+
+.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+  height: 12px;
+  border-radius: 10px
+}
+.mat-slider.mat-slider-horizontal .mat-slider-track-background,
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  height: 100%;
+  background-color: #8389c4 !important;
+}
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  background-color: #8389c4 !important;
+}
+.mat-accent .mat-slider-thumb {
+  height: 40px;
+  width: 40px;
+  background-color: #00a651 !important;
+  border: solid 12px white !important;
+  bottom: -25px;
+  right: -25px;
+}
+.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+  background-color: #00a651 !important;
+  border: solid 12px white !important;
+}

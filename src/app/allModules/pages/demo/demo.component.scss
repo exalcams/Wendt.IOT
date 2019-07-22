@@ -1,0 +1,82 @@
+@import "src/@fuse/scss/fuse";
+.page-layout.carded > .top-bg {
+  height: 160px !important;
+  // background-color: #1b56ca !important;
+  background-image: linear-gradient(to bottom, #004261, #3f3cf3);
+}
+.page-layout.carded.fullwidth > .center > .header {
+  min-height: 60px !important;
+}
+.main-content {
+  flex: 1 0 auto;
+}
+.tile {
+  background-color: white;
+  // width: 360px;
+  border: 12px solid #98aab4;
+  border-radius: 10px !important;
+}
+.podium {
+  background-color: #2b3d45;
+  // width: 360px;
+  height: 15px;
+}
+.mat-card-header-text {
+  margin: 0px !important;
+}
+.titleClassMargin {
+  margin-bottom: 4px;
+  margin-left: -4px;
+}
+.borderBottom {
+  border-bottom: 3px solid #000000;
+}
+.FontClass {
+  font-family: Montserrat;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+}
+.con {
+  @extend .FontClass;
+  font-weight: bold;
+  font-size: 40px;
+}
+.sub-con {
+  @extend .FontClass;
+}
+
+.mat-slider {
+  width: 100%;
+}
+
+.mat-header-cell {
+  background-image: linear-gradient(to bottom, #004261, #3f3cf3);
+  color: white !important;
+  // text-align: center !important;
+  // border:1px solid #1b56ca;
+}
+.mat-cell {
+  // border:1px solid #1b56ca;
+}
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0px 1px 5px 1px !important;
+}
+// .table,td,th,tr{
+//   border-collapse: collapse;
+//   border:1px solid red;
+// }
+@include media-breakpoint("sm"){
+  .screenChange {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+}
+@include media-breakpoint("xs"){
+  .screenChange {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+}

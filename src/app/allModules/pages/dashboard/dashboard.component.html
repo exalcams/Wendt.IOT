@@ -1,0 +1,144 @@
+<div class="page-layout carded fullwidth inner-scroll" fusePerfectScrollbar>
+  <div class="top-bg"></div>
+  <div class="center">
+    <div class="header m-12 whiteFont" fxLayout="row" fxLayoutAlign="center">
+      <mat-slider></mat-slider>
+    </div>
+    <div fxLayout="row" class="main-content m-12" fxLayoutAlign="center" fxLayoutGap="50px">
+      <mat-card fxFlex class="p-12">
+        <mat-card-header fxLayout="row" class="ml-12 borderBottom">
+          <div class="titleClassMargin">
+            In Use
+          </div>
+        </mat-card-header>
+        <mat-card-content class="m-16">
+          <div fxLayout fxLayoutAlign="center" class="mt-36 mb-36" fxLayoutGap="10px">
+            <div fxFlex="60">
+              <div class="con">{{statusCount?.OnDeviceRatio}}%</div>
+              <div class="sub-con">{{statusCount?.TotalOnDevices}}/{{statusCount?.TotalDevices}}</div>
+            </div>
+            <div fxFlex="40">
+              <img src="/assets/images/dashboard/cashier.png">
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card fxFlex class="p-12">
+        <mat-card-header fxLayout="row" class="ml-12 borderBottom">
+          <div class="titleClassMargin">
+            Not In Use
+          </div>
+        </mat-card-header>
+        <mat-card-content class="m-16">
+          <div fxLayout fxLayoutAlign="center" class="mt-36 mb-36" fxLayoutGap="10px">
+            <div fxFlex="60">
+              <div class="con">{{statusCount?.OffDeviceRatio}}%</div>
+              <div class="sub-con">{{statusCount?.TotalOffDevices}}/{{statusCount?.TotalDevices}}</div>
+            </div>
+            <div fxFlex="40">
+              <img src="/assets/images/dashboard/time-passing.png">
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card fxFlex class="p-12">
+        <mat-card-header fxLayout="row" class="ml-12 borderBottom">
+          <div class="titleClassMargin">
+            In Treatment
+          </div>
+        </mat-card-header>
+        <mat-card-content class="m-16">
+          <div fxLayout fxLayoutAlign="center" class="mt-36 mb-36" fxLayoutGap="10px">
+            <div fxFlex="60">
+              <div class="con">{{statusCount?.OffDeviceRatio}}%</div>
+              <div class="sub-con">{{statusCount?.TotalOffDevices}}/{{statusCount?.TotalDevices}}</div>
+            </div>
+            <div fxFlex="40">
+              <img src="/assets/images/dashboard/toolbox.png">
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="main-content m-12" 
+      >
+      <!-- <div fxFlex> -->
+        <mat-form-field appearance="outline">
+          <mat-select [(ngModel)]="defaultValue">
+            <mat-option value="All">All</mat-option>
+            <mat-option value="Today">Today</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="position-relative pb-16">
+          <canvas #myCanvas baseChart [datasets]="widget5.data.datasets" [labels]="widget5.data.labels"
+            [options]="widget5.options" [colors]="widget5.data.datasets[0]?.borderColor"
+            [chartType]="widget5.chartType">
+          </canvas>
+        </div>
+      <!-- </div> -->
+    </div>
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="main-content m-12 p-12" fxLayoutAlign="center"
+      fxLayoutGap="10px">
+      <div fxFlex fxLayout="column">
+        <div fxFlex fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between center">
+          <div fxFlex>
+            <h3><span class="borderBottom"> Status Details</span> </h3>
+          </div>
+          <div fxFlex align="end">
+            <button type="button" mat-button mat-raised-button (click)="exportAsXLSX()">
+              <mat-icon svgIcon="excel"></mat-icon>
+              Download as Excel
+            </button>
+          </div>
+        </div>
+        <div fxFlex>
+          <mat-form-field class="pl-12" fxFlex>
+            <input matInput (keyup)="applyFilterTransDetails($event.target.value)" placeholder="Search">
+          </mat-form-field>
+        </div>
+        <div fxFlex>
+          <div class="mat-elevation-z8 m-4" fxFlex #TransDetailsTable>
+            <table mat-table [dataSource]="TransDetailsDataSource" matSort style="width:100%">
+
+              <ng-container matColumnDef="Location">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
+                <td mat-cell *matCellDef="let row"> {{row.Location}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="StartDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
+                <td mat-cell *matCellDef="let row"> {{row.StartDate | date : 'dd-MM-yyyy hh:mm:ss a'}}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="EndDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> End Date </th>
+                <td mat-cell *matCellDef="let row"> {{row.EndDate | date : 'dd-MM-yyyy hh:mm:ss a'}}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="TubID">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tub ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.TubID}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Usage">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Usage </th>
+                <td mat-cell *matCellDef="let row"> {{row.Usage}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Output Type </th>
+                <td mat-cell *matCellDef="let row"> {{row.Status}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="TransDetailsColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: TransDetailsColumns;">
+              </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
