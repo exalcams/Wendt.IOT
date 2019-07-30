@@ -61,6 +61,7 @@ export class DemoComponent implements OnInit {
     this.isVisible = false;
     this.defaultValue = 'All';
     this.GetDeviceDetails();
+
   }
 
   GetDeviceDetails(): void {

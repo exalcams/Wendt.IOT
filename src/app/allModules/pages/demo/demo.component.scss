@@ -12,9 +12,12 @@
 }
 .tile {
   background-color: white;
-  // width: 360px;
+  width: 360px;
   border: 12px solid #98aab4;
   border-radius: 10px !important;
+}
+.mat-grid-tile .mat-figure {
+  display: initial !important;
 }
 .podium {
   background-color: #2b3d45;
@@ -68,15 +71,43 @@
 //   border-collapse: collapse;
 //   border:1px solid red;
 // }
-@include media-breakpoint("sm"){
+@include media-breakpoint("sm") {
   .screenChange {
     margin-left: 80px;
     margin-right: 80px;
   }
 }
-@include media-breakpoint("xs"){
+@include media-breakpoint("xs") {
   .screenChange {
     margin-left: 80px;
     margin-right: 80px;
+  }
+}
+.courses {
+  width: 100%;
+  // max-width: 1040px;
+  margin: 0 auto;
+
+  .course {
+    padding: 16px;
+    &:hover {
+      .course-content {
+        @include mat-elevation(8);
+      }
+    }
+
+    .course-content {
+      min-height: 180px;
+
+      .content {
+        padding: 12px 12px 12px 24px;
+        background: white;
+        transition: box-shadow 150ms ease-in-out;
+        border: 12px solid #98aab4;
+        border-radius: 10px !important;
+        @include mat-elevation(3);
+  
+      }
+    }
   }
 }
